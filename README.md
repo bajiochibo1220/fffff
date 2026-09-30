@@ -1,118 +1,97 @@
-# LuoLinguaAI: Phase One Progress Report
+# LuoLinguaAI Progress Report: Phase One and Phase Two
 
 **Prepared for:** Project lecturer  
-**Prepared by:** Developer  
-**Date:** 30 September 2026
+**Date:** 30 September 2026  
+**Progress is based on:** the PRD, the funding request, Activity 3.1.1 technical requirements, a review of the project code, and tests reported by the developer.
 
-## 1. Purpose of this report
+## Phase plan used in this report
 
-This report explains what has been built for LuoLinguaAI, what still needs to be done, and what belongs to Phase Two.
+The funding request sets out four phases of 16 weeks each. This report covers only the first two:
 
-The PRD describes a large system with 15 main modules. The project discussion set a six-week period for Phase One. The one-week period was for an early version that the lecturer could see and review. It was not the full six-week Phase One.
+- **Phase One — Foundation:** database and security setup, the first four content areas (Dictionary, Proverbs, Riddles, and Oral History), and the designs for the system pages.
+- **Phase Two — Content and Web:** more content areas (Folktales, Songs, Artifacts, and Heritage Sites), the public web portal, and the admin dashboard.
 
-The report uses the PRD, the project files, and the current system. The lecturer can open the deployed system and review the work.
+The one-week period discussed in the WhatsApp messages was for an early version to review. It was not the full Phase One period.
 
-## 2. Overall progress
+## Phase One — Foundation
 
-The first working version of the web system has been built and deployed. The database is running. Users can open the system on a phone or computer, and some Luo artifact pictures have been added and can be seen by users.
+### Achieved
 
-This is real progress toward Phase One. It does not mean that every part of the PRD is complete. The main work still needed is to add and check more approved Luo content, complete the agreed Phase One features, and test the main tasks with the lecturer.
-
-## 3. Phase One achievements
-
-| Area | What has been achieved |
+| Work | Progress and evidence |
 |---|---|
-| Web system | The web system has been built and deployed using Vercel. It can be opened through a web link. |
-| Phone and computer access | The system can be installed from the browser. It was tested on a phone and on a laptop, and its app icon appears on both screens. This makes the website easy to open like an app. |
-| Database | The Neon database is running and connected to the system. It stores the system’s information, such as users and cultural records. |
-| System design | The database has places for language settings, user roles, cultural information, dictionary entries, translations, pictures and other media, transcripts, and AI search information. |
-| Public pages | The system has pages for key content areas, including the dictionary, proverbs, riddles, oral histories, stories, songs, artifacts, and heritage sites. |
-| Admin tools | Admin pages and tools have been built for managing users and content, reviewing submissions, managing media, and viewing system information. |
-| User access | Login and account features, including admin roles, have been built into the system. The public Google sign-in has been configured for the current version. |
-| Artifact pictures | Some artifact pictures have been uploaded. Users can see them in the system. |
-| AI search and chatbot | The system is connected to Gemini. It has code for semantic search and a chatbot that can use information stored in the system to help answer questions. This is called RAG: in simple terms, the system looks for useful information first, then gives it to the chatbot to help form an answer. |
-| Transcript tools | The system has code that can make a short summary of a transcript and identify names of people, places, and clans. These results still need to be checked against approved Luo source material. |
+| Database setup | The Neon database is running and connected to the system. This was checked by the developer. The code has tables for users, roles, languages, cultural records, dictionary entries, media, transcripts, translations, AI search, consent, and audit history. |
+| System available online | The website has been deployed on Vercel and opens from its web link. This was checked by the developer. |
+| Phone and computer access | The website can be installed from the browser. The developer tested it on a phone and a laptop and confirmed the app icon appears on each screen. |
+| Login and roles | The code includes account sign-in, Google sign-in, admin roles, and protected admin pages. These features are present in the code. Full role and security checks listed in Activity 3.1.1 are still pending below. |
+| First four content areas | The code includes pages and data routes for Dictionary, Proverbs, Riddles, and Oral History. Small sample files are present for the dictionary (5 entries), proverbs (3), and riddles (2). |
+| Search and AI foundation | The code connects to Gemini and includes semantic search and a chatbot that can retrieve information from the system. The code also includes transcript summaries and extraction of people, places, and clans. These AI paths still need the checks listed below before they can be counted as accepted. |
 
-### Phone installation: what it means
+### Pending
 
-The phone and laptop installation is an important achievement. It is an installable web app: the browser puts an icon on the screen and opens the website in an app-like window. It is not yet a separate Android or iOS app published through Google Play or Apple’s App Store.
-
-## 4. Phase One work still to complete
-
-| Work still needed | Why it matters |
+| Work | What remains |
 |---|---|
-| Add more approved Luo content | The current sample content is small. The source archive has many transcripts, reports, and pictures, but they have not all been added to the live system. The lecturer needs enough real content to review the main sections. |
-| Finish the selected Phase One sections | The pages exist for several modules, but each needs enough checked content and a complete user experience. The lecturer and developer should agree which modules are required for the six-week Phase One. |
-| Complete the virtual Luo museum | Artifact pictures are visible, which is a start. More approved artifact and heritage-site records, descriptions, and pictures are needed. A full 3D or virtual-tour experience is a larger feature and needs a separate decision. |
-| Add and check available media | The current source files include pictures, but no audio or video files were found in the supplied archives. Audio and video features need the project team to provide the files and confirm that they can be shared. |
-| Test the main tasks | Check that users can view and search content, that admins can add and approve content, and that uploaded pictures work on phones and computers. Check the live AI search and chatbot using real, approved records. |
-| Check AI answers | The chatbot should give answers based on the approved Luo content and show which records it used. People who know the culture should review the answers for accuracy. |
-| Add the rest of the approved data | The prepared transcript data needs to be carefully moved into the system with its source and access information. Having a file in the project folder does not automatically put it into the live database. |
-| Review access and consent | Some transcript data is marked for research use or internal use. Before it is shown publicly or sent to an outside AI service, the project team must confirm that this use is allowed. |
-| Complete the final handover | Prepare simple instructions for using the system, managing content, backing up the database, and reporting problems. |
+| Add the agreed Phase One content | Add enough reviewed Luo words, proverbs, riddles, and oral histories for the lecturer to judge the four areas. The sample files are only a starting point. |
+| Add the supplied transcript data safely | The data package contains 26 prepared transcripts split into 2,708 text sections. They are not all shown to be loaded in the live system. Keep the source name, county/site, speaker details, consent, and access level when importing them. |
+| Finish the data upload process | Activity 3.1.1 requires upload, required information about each item, a file check, and a review path from raw material to approved and published material. The code has upload and review pieces; the complete process and the required file checks still need an end-to-end check. |
+| Apply access rules to every item | The technical annex requires access to depend on a person’s role, consent, and restriction level. It also requires separate rules for a record, its image/video/audio, and its transcript. The code has roles and consent-related data structures, but full checks for these rules are still pending. |
+| Check login safety | The annex calls for protected staff sign-in, extra security for admin accounts, and rules for ending inactive sessions. The code has login and roles; the added security checks have not been confirmed. |
+| Test AI using approved Luo material | Load approved records, build the search index, try real Dholuo and English questions, and check that answers use the right records. Do not send research-only or restricted material to public pages or an outside AI service without permission. |
+| Check summaries and name extraction | Compare the AI summaries and extracted people, places, and clans with the original transcripts. Have a knowledgeable reviewer correct mistakes. |
+| Protect participant information | The annex calls for hiding personal details where needed, protecting consent forms, and limiting exact location details where the community requires it. These steps still need confirmation in the working system. |
+| Check change history | The database has places to store who changed a record and its earlier versions. Confirm that edits actually save this history and can be reviewed. |
+| Test search and filters | Check that word search, filters, and AI search show only information the current user is allowed to see. |
+| Test backup and restore | Backup code and data structures exist. The annex requires a test restore of the database and sample media. That restore test is still pending. |
+| Prepare Phase One handover | Write short instructions for staff to add and approve content, manage accounts, and restore a backup. Confirm the agreed Phase One acceptance list with the lecturer. |
 
-The supplied NLP package describes 26 prepared transcripts divided into 2,708 text sections. This is useful source material. It is not proof that all these sections are already in the live system or approved for public use.
+## Phase Two — More content and web system
 
-## 5. Phase One modules from the PRD
+### Achieved or started early
 
-The PRD names 15 modules. The system has pages or database support for several of them, but a page alone does not mean the whole module is complete. The following is the current status:
-
-| PRD area | Current status |
+| Work | Progress and evidence |
 |---|---|
-| Dholuo dictionary | The page and database support are present. A small sample is available; more checked words and examples are needed. |
-| Proverbs | The page and database support are present. A small sample is available; more proverbs, meanings, and examples are needed. |
-| Riddles | The page and a quiz feature are present. A small sample is available; more riddles and explanations are needed. |
-| Oral histories | The system has pages and transcript support. More approved transcripts and related information need to be added and checked. |
-| Folktales and stories | Pages are present. The collection and story details need to be expanded. |
-| Songs | Pages are present. More lyrics and approved sound recordings are needed. |
-| Artifacts and Luo museum | Artifact pages and some visible pictures are present. More records and descriptions are needed. |
-| Heritage sites | Pages and map components are present. Site information, pictures, and map details need to be checked and added. |
-| AI chatbot | The system has chatbot and RAG code. It needs testing with enough approved records. |
-| AI language tutor | This is not complete. |
-| Games and learning centre | Some basic quiz work exists, but the full learning and games features are not complete. |
-| Cultural calendar | A database module is listed, but a complete calendar with approved events is not demonstrated. |
-| Audio-visual library | Media upload tools exist, but a complete library with approved audio and video is not available yet. |
-| Research portal | Database support exists, but a complete portal for researchers is not available yet. |
+| Public web portal | The web system is deployed on Vercel and has public pages for several content areas. The developer confirmed that it opens online. |
+| Admin dashboard | Admin and super-admin pages are present in the code for users, content, review, media, translations, analytics, and system settings. The full admin process still needs to be checked with the lecturer. |
+| Folktales and Songs | Pages and data routes exist in the code. Complete collections and all PRD features are not yet confirmed. |
+| Artifacts | Artifact pages and media upload support are present. The developer uploaded artifact pictures and confirmed that users can see them. |
+| Heritage sites | Heritage-site pages, data routes, and map components exist in the code. Full site information and virtual tours are not yet confirmed. |
+| Phone-friendly install | The deployed website can be installed from the phone browser, and the icon appears on the phone screen. This supports access to the web system; it does not mean separate Android and iOS store apps are complete. |
 
-The PRD also lists content such as traditional food, medicine, ceremonies, clan history, fishing, farming, names, weather knowledge, and governance. These topics need to be selected with the lecturer and added as checked records. They should not be claimed as complete just because they appear in a transcript or analysis report.
+### Pending
 
-## 6. Phase Two: later work
+| Work | What remains |
+|---|---|
+| Fill the expanded content areas | Add reviewed stories, songs, artifacts, and heritage sites with enough approved information and images for users to explore. |
+| Complete the Luo museum collection | Some artifact pictures are already visible. Add the approved descriptions and more items, and agree what the lecturer means by “virtual museum.” A picture collection, a map, a 3D model, and a full virtual tour are different amounts of work. |
+| Add audio and video | The supplied archives reviewed for this report contained images but no audio or video files. The project team needs to provide and approve any recordings to be displayed. |
+| Finish admin tasks | Test that an admin can add an item, attach media, send it for review, approve it, publish it, and correct it later. |
+| Finish maps and site details | Check location information and decide whether exact coordinates can be shared for each site. |
+| Test the complete website | Check the main public and admin tasks using a phone and a computer, including slow connections and failed uploads. |
+| Complete reporting and records | Confirm the needed reports, data exports, and content history for the university’s research team. |
 
-Phase Two should begin after the agreed Phase One work has been reviewed. The following PRD features are not complete in the current system:
+## Technical checks required by Activity 3.1.1
 
-- Separate Android and iOS apps for the app stores.
-- Use without an internet connection and automatic syncing when the connection returns.
-- Speech-to-text and text-to-speech.
-- Pronunciation practice and the full AI language tutor.
-- OCR, which reads words from pictures or scanned pages.
-- Automatic translation between languages.
-- Image recognition and a cultural knowledge graph.
-- Full lessons, learning progress, and larger games or multiplayer activities.
-- 3D artifact models, story animation, and full virtual tours.
-- A complete research portal and the full audio-visual library.
-- Full support for more languages. Kikuyu is listed in the system design but is not active as a complete language service.
-- Moving the system to the university data centre, if the university confirms the technical needs and schedule.
+The developer has confirmed four working checks: the Vercel website opens, Neon is running, uploaded artifact pictures are visible to users, and the installable website icon appears on phone and laptop screens. Other checks below are still pending unless the development team has separate test records:
 
-### Phase Two groundwork already present
+- A restricted record and its media cannot be opened by a user without permission.
+- Search results respect the user’s role, consent level, and content restrictions.
+- A file upload saves its checksum and required information about the file.
+- A reviewer can approve, request a change, or restrict an item, and the action is recorded.
+- Earlier versions and the person who changed an item can be viewed.
+- A data export leaves out records and personal details that the user is not allowed to receive.
+- A database backup and sample media can be restored successfully.
+- The system meets the response-time and availability targets in the technical annex.
 
-Some early pieces are already in the code. The phone-install feature is in place, but it is not a native app or offline mode. The system has early transcript summary and name-finding tools, but they need approved data and careful review. The database also has starter entries for future learning, games, research, and additional languages. These are starting points, not completed Phase Two features.
+## Phase Two groundwork already in the code
 
-## 7. Important note about AI
+Some early building blocks for later features are already present: phone-browser installation, starter language settings, learning and games placeholders, and AI transcript tools. These are foundations only. They do not mean that native mobile apps, full lessons and games, offline use, or a complete AI language tutor are finished.
 
-The current AI features use Gemini to work with information in the system. The system has not trained a new Luo language model. Making text vectors helps the system find related information; it does not train a new model.
+## Important data and AI note
 
-The AI should only use information that the project team has approved for that purpose. Its answers and transcript summaries should be reviewed by people who understand Dholuo and Luo culture.
+The prepared transcript package labels its records for research or internal use by default. Confirm permission for each item before making it public or sending it to an outside AI service. The AI features use Gemini to search and work with stored information; this is not the same as training a new Luo language model.
 
-## 8. Recommended next steps for Phase One
+## Progress summary
 
-1. The lecturer confirms which content sections must be ready for the Phase One review.
-2. The project team confirms which transcripts, pictures, and other media can be shown to the public and used with AI.
-3. Add a useful set of approved content to the selected sections, including the artifact collection.
-4. Test the main public, admin, media, and AI tasks on the deployed site using a phone and a computer.
-5. Record the lecturer’s feedback and agree which remaining tasks belong to Phase One and which move to Phase Two.
+- **Phase One:** database, deployment, phone/laptop installation, core page structures, and early AI code are in place. Content population, permission checks, full feature testing, and handover remain.
+- **Phase Two:** the web portal, admin pages, several expanded content pages, and visible artifact pictures have already been started. More approved content, complete admin checks, and a clear museum experience remain.
 
-## 9. Closing statement
-
-Phase One has made clear progress: the web system is deployed, the Neon database is running, the system can be installed from a phone and laptop browser, admin and content features have been built, some artifact pictures are visible, and the first AI tools are in place.
-
-The main unfinished work is to add more approved content and media, complete and test the selected Phase One features, and review the system with the lecturer. The broader mobile apps and advanced AI features belong to Phase Two unless the project team formally changes the agreed scope.
+The progress statements marked as tested above are based on the developer’s reported checks. Items described as present in code have not been marked as tested unless a working test was confirmed.
