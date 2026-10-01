@@ -1,129 +1,84 @@
-# Whole System Test Guide
+# LuoLinguaAI: Phase One Evidence and Work Still Ahead
 
-Use this guide to check the website from start to finish. Write **Pass** or **Fail** beside each number. If a check fails, write down what you saw and the page you were on.
+**Review date:** 1 October 2026  
+**Purpose:** To show what the project can prove today, what still needs to be finished before Phase One can be signed off, and what belongs to Phase Two.
 
-## Before You Start
+## Simple conclusion
 
-1. Use a test copy of the website and test information. Do not use real people's private information.
-2. Make a backup before testing delete buttons or changing account access.
-3. Start the website and make sure the home page opens at `http://localhost:3000`.
-4. Make sure the website can reach its saved data and that the Google sign-in settings include `http://localhost:3000/api/auth/callback/google`.
-5. Prepare one Google account already linked to a website account, one Google email with no website account, and one new Google account for sign-up.
-6. Prepare one normal email-and-password account, one account waiting for approval, one suspended test account, one language admin, one super admin, and one master super admin.
-7. Use a test language that is turned on, such as Luo. Make a note of its public page address.
-8. When checking public content, use material marked for public sharing. A record kept private or for study only must stay off the public pages.
+The project has a working first version. The project owner has tested it and says it works. The project files also show that the web pages, user accounts, content areas, admin tools, and early AI tools have been built.
 
-## Sign In And Sign Up
+However, the documents do **not** prove that all Phase One work is finished and accepted. The progress report and the project status list more work: adding and checking approved Luo content, testing the full work on the live site, adding an extra sign-in step for admins, checking the research data rules, and preparing the final handover.
 
-9. Open the sign-in page. **Expected:** The email, password, Google, and create-account choices are visible.
-10. Sign in with the right email and password. **Expected:** The account opens its correct home page.
-11. Sign in with a wrong password. **Expected:** The account does not open and a clear error appears.
-12. Leave the email or password empty and try to sign in. **Expected:** The page asks for the missing detail.
-13. Sign in with a Google account already linked to a website account. **Expected:** The account opens without an access-denied page.
-14. Sign in with a Google account already linked to an admin account. **Expected:** The account opens the admin area, not the member area.
-15. Sign in with the Google email of an existing password account that has not yet been linked. **Expected:** The same account opens; a second account is not made.
-16. Sign out, then use the linked Google account again. **Expected:** It still opens the same account.
-17. On the sign-in page, choose Google with an email that has no website account. **Expected:** You return to sign-in and see that no account was found, with a link to create one.
-18. Use the link in that message. **Expected:** The create-account page opens.
-19. On the create-account page, try Google sign-up before accepting the terms. **Expected:** Google sign-up cannot start.
-20. Accept the terms, then choose Google sign-up with a new Google account. **Expected:** Google opens and returns you to the page for finishing account setup.
-21. Try to finish Google sign-up without a name, birth date, or language. **Expected:** The missing detail is requested and no incomplete account is accepted.
-22. Enter a date that does not exist, such as 31 February. **Expected:** The date is rejected.
-23. Enter a date that makes the person younger than five or older than 120. **Expected:** The website does not finish account setup.
-24. Choose a language, enter a real date and name, accept the terms, and finish Google sign-up. **Expected:** The account opens the member home page.
-25. Sign out and sign in with that new Google account. **Expected:** It opens the same account and does not ask for the sign-up details again.
-26. Try Google sign-up using the email of an existing account. **Expected:** The existing account opens; no duplicate account is made.
-27. Use the normal create-account form with valid details. **Expected:** The account is made and can sign in.
-28. Try the normal create-account form with an email already in use. **Expected:** The website explains that the email is already registered.
-29. Try a password shorter than eight characters. **Expected:** The website does not create the account.
-30. Try to create an account without accepting the terms. **Expected:** The website does not create the account.
-31. Sign in with an account waiting for approval. **Expected:** It cannot use member or admin pages until approved.
-32. Sign in with a suspended account using both password and Google. **Expected:** Access is refused with a clear message.
-33. Cancel Google sign-in, return to the site, and then choose Google sign-in again. **Expected:** The second try follows the choice made on the current page.
-34. Open a protected page while signed out. **Expected:** The website sends you to sign-in; it does not show private information.
-35. Sign out and press the browser Back button. **Expected:** Private pages do not become usable again.
+**Fair status today:** Phase One is built in large part. Final testing and sign-off are still needed. It would be too early to report that every Phase One promise is complete.
 
-## Public Pages And Content
+## What Phase One asked for
 
-36. Open the public language home page. **Expected:** The page opens and shows its language and content areas.
-37. Open each public area: dictionary, proverbs, riddles, oral histories, folktales, songs, artifacts, and heritage sites. **Expected:** Each page opens without an error.
-38. Open each area when it has no public records. **Expected:** A clear empty message appears.
-39. Open an area that has publicly released records. **Expected:** Its released records appear.
-40. Open a public record from its list. **Expected:** The correct title and details appear.
-41. Check that a private draft does not appear on a public page. **Expected:** It stays hidden.
-42. Check that a record waiting for review does not appear on a public page. **Expected:** It stays hidden.
-43. Check that a record kept for study, teaching, or community use does not appear as public. **Expected:** It stays hidden from people who are not allowed to see it.
-44. Check that a record with public consent but a private restriction does not appear publicly. **Expected:** It stays hidden.
-45. Check a public record with an embargo that has not ended. **Expected:** It stays hidden until the end date.
-46. Check the same record after its embargo ends. **Expected:** It can appear if it is approved for public release.
-47. Check an oral history without confirmed source permission. **Expected:** It stays off public pages.
-48. Check an oral history with confirmed source permission and public access settings. **Expected:** It appears after public approval.
-49. Change the public language page between Luo and English. **Expected:** The page shows content for the chosen language or culture setting.
-50. Open a public link for a record that is not public. **Expected:** The record is not shown.
-51. Use the public search box with a word that exists. **Expected:** Matching public records appear.
-52. Search for a word that does not exist. **Expected:** A clear “no results” message appears.
-53. Open the dictionary. **Expected:** Public dictionary words and approved dictionary records appear together.
-54. If there are more than 50 public dictionary entries, choose “Show more entries.” **Expected:** More entries appear without repeating earlier entries.
-55. Keep loading dictionary entries until the end. **Expected:** Every public entry can be reached.
-56. Search the dictionary in Luo, English, or Kiswahili. **Expected:** Matching public entries appear.
-57. Open a dictionary entry with audio. **Expected:** The audio can be played.
-58. Open a public record with an image. **Expected:** The image loads and matches the record.
-59. Open a public record with audio or video. **Expected:** The media plays and has working controls.
-60. Open a public record with a transcript or document. **Expected:** The file opens or downloads correctly.
-61. Open the public home page after publishing a record. **Expected:** It may show the record in the featured area when it is among the latest three public records.
-62. Check that old or private content is not shown as featured. **Expected:** Only eligible public records appear there.
+The funding request sets Phase One as a six-week web project. It asks for a Luo-English dictionary, proverbs and riddles, an oral history archive, basic admin tools, a live website, testing, and a starting point for future connection to the research data store.
 
-## Upload, Review, And Public Release
+The message to the lecturer describes a one-week early version that people could open and review. It lists a Luo and English public site, key content areas, admin review, one AI feature, and a live demonstration. The project progress report says this one-week version was an early step, not the full six-week Phase One.
 
-63. Sign in as a normal member and open a contribution form. **Expected:** You can enter a contribution but cannot publish it yourself.
-64. Try to submit a contribution with required details missing. **Expected:** The missing details are named and it is not submitted.
-65. Save a contribution as a draft. **Expected:** It appears in your drafts and not on public pages.
-66. Submit a complete contribution for review. **Expected:** It appears in your submissions and the review list.
-67. Add an image to a contribution and save it. **Expected:** The image is attached to the right record.
-68. Add audio, video, and a transcript in separate test records. **Expected:** Each file is attached and can be opened by an allowed reviewer.
-69. Try to upload an unsupported or too-large file. **Expected:** The website explains the problem and keeps the record safe.
-70. Sign in as a reviewer and open the review list. **Expected:** You can see records for the language you manage.
-71. Try to open a record from a language you do not manage. **Expected:** Access is refused.
-72. Approve a record with public consent, a public restriction, and any required source permission. **Expected:** Its state says published and it appears in the correct public area.
-73. Approve a record without public consent or with a private restriction. **Expected:** It says curated, explains that it was not published, and stays off public pages.
-74. Open the curated filter in the admin content list. **Expected:** Internally curated records can be found there.
-75. Correct the access settings on a curated record, then approve it again. **Expected:** It becomes published only after it meets the public rules.
-76. Try to publish an oral history without confirmed source permission. **Expected:** It does not become public and the reason is clear.
-77. Approve a record with a future embargo date. **Expected:** It does not appear publicly until the embargo ends.
-78. Reject a contribution and add a note. **Expected:** It is marked rejected and the note is saved.
-79. Send a contribution back for changes. **Expected:** The contributor can see that it needs changes.
-80. Edit a published record. **Expected:** It is removed from public pages until it is approved again.
-81. Approve the edited record again after checking its details. **Expected:** It returns to public pages if it still meets the public rules.
-82. Try to approve incomplete required content. **Expected:** The website asks for the missing details and does not publish it.
-83. Try to approve a record in a language you cannot review. **Expected:** The website refuses the action.
-84. Refresh the public page after approval. **Expected:** The newly released record appears without needing a server restart.
+The activity paper gives extra rules for safe handling of cultural records: record who gave permission, keep private material private, track edits, keep a history of decisions, and test that the right people can see each record. It also calls for an extra sign-in step for admins and curators.
 
-## Admin And Master Admin Pages
+## Evidence by promised work
 
-85. Sign in as a language admin. **Expected:** The language admin home page opens.
-86. Check that the language admin can review only allowed languages. **Expected:** Other languages cannot be changed.
-87. Sign in as a super admin. **Expected:** The super admin pages open.
-88. Change the selected language in the super admin area. **Expected:** The lists show the chosen language.
-89. Sign in as a master super admin. **Expected:** The master super admin pages open.
-90. Try to open a master super admin page as a normal member. **Expected:** Access is refused.
-91. Add a test user through the admin tools. **Expected:** The user gets only the access chosen by the admin.
-92. Change a test user's status or role. **Expected:** The new access takes effect after the user signs in again.
-93. Open the admin content list and filter by draft, submitted, curated, and published. **Expected:** Each filter shows the right records.
-94. Delete a test record after confirming the warning. **Expected:** It is removed and no longer appears in lists.
-95. Cancel a delete warning. **Expected:** The record remains.
-96. Open the activity history after a review action. **Expected:** The action, record, and reviewer are shown.
-97. Open the reports and totals pages. **Expected:** They load and show sensible totals for the test data.
-98. Change an admin setting, save it, and reload the page. **Expected:** The saved setting remains.
-99. Try an admin action with a normal member account. **Expected:** The action is refused and nothing changes.
-100. Open the site on a phone-sized screen. **Expected:** Text and buttons fit and the main pages can be used.
-101. Open the site on a wide screen. **Expected:** Menus and page content do not cover each other.
-102. Use keyboard Tab to reach sign-in, sign-up, search, and review buttons. **Expected:** Each control can be reached and used.
-103. Refresh a page while signed in. **Expected:** You stay signed in and the page still works.
-104. Stop and restart the website, then sign in and open a public record. **Expected:** Saved accounts and published records are still there.
+| Phase One work | Evidence found | State today |
+| --- | --- | --- |
+| Live web site | The progress report says the site was deployed and opened on a phone and computer. The owner also says the tested version works. | A working first version is reported. The latest code changes still need to be checked on the live site. |
+| Luo and English public pages | The project has language pages and public areas for the main content types. The project status notes that language switching exists. | Main pages are present. Full, reviewed Luo and English wording is not finished everywhere. |
+| Dictionary | The dictionary page, search, word details, and support for sound files are in the project. | The feature is present. The progress report says the live set of checked words is still small. |
+| Proverbs and riddles | Public pages and record forms are present. Riddle answers and explanations are supported. | The features are present. More checked Luo examples and full user testing are needed. |
+| Oral history archive | The project has an oral history area, transcript support, permission fields, and review steps. | The basic feature is present. The prepared transcript collection has not been added to the live system. |
+| Admin tools | Admin pages, user roles, content review, and approval actions are in the project. | The tools are present. Each main action still needs to pass the test guide on the live site. |
+| Safe public release | The project checks whether a record is approved for public sharing before showing it. It also supports private records and future release dates. | The rules are in the code. Reviewers still need to check the saved records and confirm the rules work with real test records. |
+| Pictures, sound, and video | The progress report says some artifact pictures are visible. The project supports media uploads. The report says it found no sound or video files in the supplied material. | Pictures are partly shown. Sound and video cannot be fully accepted until approved test files are supplied and checked. |
+| AI feature | The report says Gemini is connected. Search and chatbot code are present. Transcript summary tools are also present. | Early AI tools are present. The team still needs to test answers using approved Luo records and have culture and language experts check them. |
+| Research data rules | The project includes record details, permission settings, file names, history of edits, and export tools. | A useful start is present. The project status says the rules and data exports still need review against the research data standard. |
+| Admin sign-in safety | The activity paper asks admins and curators to use an extra sign-in step. The project status says this is not built. | **Not complete.** Add and test the extra sign-in step before Phase One sign-off. |
+| Testing and training | A whole-system test guide is now available. Earlier checks found that the code builds. | A guide and basic code checks exist. There is no completed record showing every main task passed on the live site, or that staff training and handover are finished. |
+| Moving the approved data | The project contains prepared transcripts and a repeatable import tool. The project status says the import was not run because permission to send the data to the test database was not confirmed. | **Not complete.** Get written approval for where the data may be stored, then add only the records cleared for that use. |
 
-## Finish The Test
+## Work to close before Phase One sign-off
 
-105. Sign out of every test account and remove any test records that should not remain.
-106. Write down every failed number, the account used, the page address, and what you expected to happen.
-107. Do not mark a failed check as passed just because another page works.
-108. A record counts as public only when it has passed review and is allowed for public sharing. A record kept private must remain private.
+1. Agree which words, proverbs, riddles, stories, oral histories, pictures, and other records must be ready for the Phase One review.
+2. Confirm in writing which records may be shown to everyone and which must stay private or be used only for study.
+3. Add enough approved records to the live site for the project team to check each agreed content area.
+4. Test sign-in, account creation, content upload, review, public release, search, media, and AI on the live site. Record the date and result for every test.
+5. Add and test the extra sign-in step for admin and curator accounts, as requested in Activity 3.1.1.
+6. Test a backup restore using the saved data and a set of sample media files.
+7. Check that the latest code is on the live site. Review older media links so private files cannot be opened by people who should not see them.
+8. Have the project and language reviewers check the public wording, AI answers, and research data exports.
+9. Finish simple instructions for admins, curators, and users, and record that the handover or training took place.
+10. Decide whether Kikuyu is required in Phase One. The lecturer message mentions it, while the funding request focuses on Luo and English and the progress report says other languages are later work.
+11. Keep the prepared transcript collection out of public pages and outside AI use unless the right people approve that use.
+
+## What belongs to Phase Two
+
+The funding request says these items are future work that needs a separate request for money:
+
+1. Separate Android and iPhone apps. The current phone install feature opens the website like an app; it is not an app from an app store.
+2. Working without internet and sending saved changes later.
+3. A full AI language tutor, speech-to-text, spoken answers, and pronunciation practice.
+4. Reading text from pictures, translating languages, and recognising objects in pictures.
+5. Full lessons, learning progress, and games.
+6. Three-dimensional object views, animated stories, and online heritage-site tours.
+7. A full research area and a large sound-and-video library.
+8. Full support for more languages, including Kikuyu, unless the project team confirms it is needed sooner.
+9. Moving the system to JOOUST's own data centre and completing deeper links to the research data store.
+
+The PRD lists Android and iPhone apps as expected deliverables, but the funding request clearly places mobile apps in Phase Two. The funding request is the clearer guide for what the Phase One budget covers. The project team should confirm this choice in writing before reporting against the PRD.
+
+## Evidence checked
+
+1. [Phase One funding request](../PHASE%20ONE%20FUNCING%20REQUEST%20%2C%20PROJECT%20AND%20A%20CHART%20I%20SENT%20TO%20THE%20LECTURE%2C%20ALL%20THOSE%20COMMUNICATE%20WJHAT%20TO%20BE%20DELIVERD%20IN%20PHASE%20ONE/Request%20for%20%20Funding%20Approval%20%20of%20LuoLinguaAI%20Project%20Phase%201.pdf)
+2. [Lecturer project message](../PHASE%20ONE%20FUNCING%20REQUEST%20%2C%20PROJECT%20AND%20A%20CHART%20I%20SENT%20TO%20THE%20LECTURE%2C%20ALL%20THOSE%20COMMUNICATE%20WJHAT%20TO%20BE%20DELIVERD%20IN%20PHASE%20ONE/A%20chat%20message%20to%20the%20project%20manager%20.pdf.docx)
+3. [Phase One progress report](../PHASE%20ONE%20FUNCING%20REQUEST%20%2C%20PROJECT%20AND%20A%20CHART%20I%20SENT%20TO%20THE%20LECTURE%2C%20ALL%20THOSE%20COMMUNICATE%20WJHAT%20TO%20BE%20DELIVERD%20IN%20PHASE%20ONE/Phase%20one%20progress%20report.pdf)
+4. [LuoLinguaAI PRD](../PHASE%20ONE%20FUNCING%20REQUEST%20%2C%20PROJECT%20AND%20A%20CHART%20I%20SENT%20TO%20THE%20LECTURE%2C%20ALL%20THOSE%20COMMUNICATE%20WJHAT%20TO%20BE%20DELIVERD%20IN%20PHASE%20ONE/JOOUST%20LuoLinguaAI%20PRD.docx)
+5. [Activity 3.1.1 technical paper](../PHASE%20ONE%20FUNCING%20REQUEST%20%2C%20PROJECT%20AND%20A%20CHART%20I%20SENT%20TO%20THE%20LECTURE%2C%20ALL%20THOSE%20COMMUNICATE%20WJHAT%20TO%20BE%20DELIVERD%20IN%20PHASE%20ONE/Activity%203.1.1.docx)
+6. [Technical implementation status](PRD_PHASE_STATUS_ANALYSIS.md)
+7. [Whole system test guide](WHOLE_SYSTEM_TEST_PLAN.md)
+
+## Final statement
+
+The available evidence supports saying: **“A working Phase One web version has been built, and much of the planned system is present.”**
+
+The available evidence does not yet support saying: **“All Phase One work has been completed, tested, accepted, and handed over.”** Use that statement only after the open items above are completed and the project team records its approval.
